@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { supabase } from "../lib/supabase";
 
 export default function Home() {
+const [pdfFile, setPdfFile] = useState(null);
 const [fileName, setFileName] = useState("");
 const [name, setName] = useState("");
 const [mobile, setMobile] = useState("");
@@ -18,16 +20,72 @@ const handleFileChange = (e) => {
 const file = e.target.files[0];
 
 if (file) {
+  setPdfFile(file);
   setFileName(file.name);
 }
 
 };
 
-const handleOrder = () => {
-setMessage("Order Submitted Successfully!");
+const handleOrder = async () => {
+if (!pdfFile) {
+setMessage("Please Upload A PDF");
+return;
+}
+
+const filePath = `${Date.now()}_${pdfFile.name}`;
+
+const { error: uploadError } = await supabase.storage
+  .from("PDFs")
+  .upload(filePath, pdfFile);
+
+if (uploadError) {
+  console.log("UPLOAD ERROR:", uploadError);
+  alert(JSON.stringify(uploadError));
+  setMessage("PDF Upload Failed");
+  return;
+}
+
+const { data } = supabase.storage
+  .from("PDFs")
+  .getPublicUrl(filePath);
+
+const pdfUrl = data.publicUrl;
+
+const { error } = await supabase
+  .from("orders")
+  .insert([
+    {
+      customer_name: name,
+      mobile: mobile,
+      file_name: fileName,
+      pdf_url: pdfUrl,
+      copies: Number(copies),
+      print_type: printType,
+      shop: shop,
+      total_price: totalPrice,
+      status: "Pending",
+    },
+  ]);
+
+if (error) {
+  console.log(error);
+  setMessage("Error Saving Order");
+} else {
+  setMessage("Order Submitted Successfully!");
+
+  setName("");
+  setMobile("");
+  setCopies(1);
+  setPrintType("bw");
+  setFileName("");
+  setPdfFile(null);
+}
+
+
 };
 
-return ( <main className="min-h-screen bg-slate-50 text-black"> <section className="text-center py-10 px-4"> <h1 className="text-4xl font-bold mb-6">HillPrint</h1>
+return ( <main className="min-h-screen bg-slate-50 text-black"> <section className="text-center py-10 px-4"> <h1 className="text-4xl font-bold mb-6">
+HillPrint </h1>
 
     <label className="bg-black text-white px-6 py-3 rounded-lg cursor-pointer inline-block">
       Upload PDF
@@ -42,7 +100,9 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
     {fileName && (
       <div className="mt-4">
         <p>Selected File:</p>
-        <p className="text-blue-600">{fileName}</p>
+        <p className="text-blue-600">
+          {fileName}
+        </p>
       </div>
     )}
 
@@ -51,7 +111,9 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
         type="text"
         placeholder="Full Name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={(e) =>
+          setName(e.target.value)
+        }
         className="w-full border p-3 rounded mb-4"
       />
 
@@ -59,7 +121,9 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
         type="tel"
         placeholder="Mobile Number"
         value={mobile}
-        onChange={(e) => setMobile(e.target.value)}
+        onChange={(e) =>
+          setMobile(e.target.value)
+        }
         className="w-full border p-3 rounded mb-4"
       />
 
@@ -67,32 +131,53 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
         type="number"
         min="1"
         value={copies}
-        onChange={(e) => setCopies(e.target.value)}
+        onChange={(e) =>
+          setCopies(e.target.value)
+        }
         className="w-full border p-3 rounded mb-4"
       />
 
       <select
         value={printType}
-        onChange={(e) => setPrintType(e.target.value)}
+        onChange={(e) =>
+          setPrintType(e.target.value)
+        }
         className="w-full border p-3 rounded mb-4"
       >
-        <option value="bw">Black & White (₹6.5)</option>
-        <option value="color">Color (₹15)</option>
+        <option value="bw">
+          Black & White (₹6.5)
+        </option>
+        <option value="color">
+          Color (₹15)
+        </option>
       </select>
 
       <select
         value={shop}
-        onChange={(e) => setShop(e.target.value)}
+        onChange={(e) =>
+          setShop(e.target.value)
+        }
         className="w-full border p-3 rounded mb-4"
       >
-        <option>ABS Financial Advisory</option>
-        <option>Theog Print House</option>
-        <option>Cyber Point Theog</option>
+        <option>
+          ABS Financial Advisory
+        </option>
+        <option>
+          Theog Print House
+        </option>
+        <option>
+          Cyber Point Theog
+        </option>
       </select>
 
       <div className="bg-gray-100 p-4 rounded mb-4">
-        <p><strong>Shop:</strong> {shop}</p>
-        <p><strong>Estimated Cost:</strong> ₹{totalPrice}</p>
+        <p>
+          <strong>Shop:</strong> {shop}
+        </p>
+        <p>
+          <strong>Estimated Cost:</strong> ₹
+          {totalPrice}
+        </p>
       </div>
 
       <button
