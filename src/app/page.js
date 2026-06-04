@@ -1,6 +1,10 @@
 "use client";
 
 import { useState } from "react";
+const [shop, setShop] = useState("ABS Financial Advisory");
+const [message, setMessage] = useState("");
+const pricePerCopy = printType === "bw" ? 6.5 : 15;
+const totalPrice = copies * pricePerCopy;
 
 export default function Home() {
 const [fileName, setFileName] = useState("");
@@ -10,6 +14,9 @@ const [copies, setCopies] = useState(1);
 const [printType, setPrintType] = useState("bw");
 
 const handleFileChange = (e) => {
+  const handleOrder = () => {
+  setMessage("Order Submitted Successfully!");
+};
 const file = e.target.files[0];
 
 if (file) {
@@ -98,10 +105,37 @@ HillPrint </h1>
         <option value="bw">Black & White</option>
         <option value="color">Color</option>
       </select>
+<select
+  value={shop}
+  onChange={(e) => setShop(e.target.value)}
+  className="w-full border p-3 rounded mb-4"
+>
+  <option>ABS Financial Advisory</option>
+  <option>Theog Print House</option>
+  <option>Cyber Point Theog</option>
+</select>
 
-      <button className="w-full bg-black text-white py-3 rounded-lg">
-        Place Order
-      </button>
+<div className="bg-gray-100 p-4 rounded mb-4">
+  <p>
+    <strong>Selected Shop:</strong> {shop}
+  </p>
+
+  <p>
+    <strong>Estimated Cost:</strong> ₹{totalPrice}
+  </p>
+</div>
+      <button
+  onClick={handleOrder}
+  className="w-full bg-black text-white py-3 rounded-lg"
+>
+  Place Order
+</button>
+<button
+  onClick={handleOrder}
+  className="w-full bg-black text-white py-3 rounded-lg"
+>
+  Place Order
+</button>
     </div>
   </section>
 
