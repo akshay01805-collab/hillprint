@@ -65,7 +65,5 @@ HillPrint </h1>
     </div>
   </section>
 </main>
-```
-
 );
 }
