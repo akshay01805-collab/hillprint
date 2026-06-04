@@ -106,7 +106,7 @@ HillPrint </h1>
       </div>
     )}
 
-    <div className="max-w-md mx-auto mt-8 bg-white p-6 rounded-xl shadow">
+    <div className="max-w-md mx-auto mt-8 bg-white p-6 rounded-2xl shadow-x1">
       <input
         type="text"
         placeholder="Full Name"
@@ -194,6 +194,194 @@ HillPrint </h1>
       )}
     </div>
   </section>
+  {/* HOW IT WORKS */}
+
+<section
+  style={{
+    maxWidth: "1000px",
+    margin: "60px auto",
+    padding: "20px",
+  }}
+>
+  <h2
+    style={{
+      textAlign: "center",
+      fontSize: "32px",
+      marginBottom: "30px",
+    }}
+  >
+    How HillPrint Works
+  </h2>
+
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+      gap: "20px",
+    }}
+  >
+    <div style={{ background: "white", padding: "20px", borderRadius: "10px" }}>
+      <h3>1. Upload PDF</h3>
+      <p>Select The Document You Want To Print.</p>
+    </div>
+
+
+<div style={{ background: "white", padding: "20px", borderRadius: "10px" }}>
+  <h3>2. Choose Printing Options</h3>
+  <p>Select Copies, Print Type And Pickup Shop.</p>
+</div>
+
+<div style={{ background: "white", padding: "20px", borderRadius: "10px" }}>
+  <h3>3. Collect Your Prints</h3>
+  <p>Visit The Selected Shop And Collect Your Documents.</p>
+</div>
+
+  </div>
+</section>
+
+{/* WHY CHOOSE US */}
+
+<section
+  style={{
+    background: "#ffffff",
+    padding: "50px 20px",
+  }}
+>
+  <h2
+    style={{
+      textAlign: "center",
+      fontSize: "32px",
+      marginBottom: "30px",
+    }}
+  >
+    Why Choose HillPrint
+  </h2>
+
+  <ul
+    style={{
+      maxWidth: "700px",
+      margin: "0 auto",
+      lineHeight: "2",
+      fontSize: "18px",
+    }}
+  >
+    <li>Fast And Reliable Printing Service</li>
+    <li>Multiple Pickup Locations</li>
+    <li>Affordable Pricing</li>
+    <li>Secure PDF Handling</li>
+    <li>Easy Online Ordering</li>
+  </ul>
+</section>
+
+{/* PICKUP LOCATIONS */}
+
+<section
+  style={{
+    padding: "50px 20px",
+  }}
+>
+  <h2
+    style={{
+      textAlign: "center",
+      fontSize: "32px",
+      marginBottom: "30px",
+    }}
+  >
+    Pickup Locations
+  </h2>
+
+  <div
+    style={{
+      textAlign: "center",
+      lineHeight: "2",
+      fontSize: "18px",
+    }}
+  >
+    <p>ABS Financial Advisory - Court Road Theog</p>
+    <p>Theog Print House</p>
+    <p>Cyber Point Theog</p>
+  </div>
+</section>
+
+{/* PRIVACY POLICY */}
+
+<section
+  style={{
+    background: "#ffffff",
+    padding: "50px 20px",
+  }}
+>
+  <h2
+    style={{
+      textAlign: "center",
+      marginBottom: "20px",
+    }}
+  >
+    Privacy Policy
+  </h2>
+
+  <p
+    style={{
+      maxWidth: "900px",
+      margin: "0 auto",
+      textAlign: "center",
+      lineHeight: "1.8",
+    }}
+  >
+    Uploaded Files Are Used Only For Printing Purposes.
+    HillPrint Does Not Share Customer Files With Third Parties.
+  </p>
+</section>
+
+{/* DISCLAIMER */}
+
+<section
+  style={{
+    padding: "50px 20px",
+  }}
+>
+  <h2
+    style={{
+      textAlign: "center",
+      marginBottom: "20px",
+    }}
+  >
+    Disclaimer
+  </h2>
+
+  <p
+    style={{
+      maxWidth: "900px",
+      margin: "0 auto",
+      textAlign: "center",
+      lineHeight: "1.8",
+    }}
+  >
+    Customers Are Responsible For The Content They Upload.
+    Illegal, Copyright Violating Or Restricted Material Is Not Allowed.
+  </p>
+</section>
+
+{/* CONTACT */}
+
+<section
+  style={{
+    background: "#111827",
+    color: "white",
+    padding: "50px 20px",
+    textAlign: "center",
+  }}
+>
+  <h2>Contact Us</h2>
+
+  <p>ABS Financial Advisory</p>
+  <p>Court Road Theog</p>
+  <p>WhatsApp: 8988477786</p>
+
+  <p style={{ marginTop: "20px", opacity: "0.8" }}>
+    © 2026 HillPrint. All Rights Reserved.
+  </p>
+</section>
 </main>
 
 );

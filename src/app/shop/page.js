@@ -71,6 +71,7 @@ const checkUser = async () => {
   };
 
   return (
+    
     <main
       style={{
         minHeight: "100vh",
