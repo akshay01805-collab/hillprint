@@ -4,12 +4,18 @@ import { useState } from "react";
 
 export default function Home() {
 const [fileName, setFileName] = useState("");
+const [name, setName] = useState("");
+const [mobile, setMobile] = useState("");
+const [copies, setCopies] = useState(1);
+const [printType, setPrintType] = useState("bw");
 
 const handleFileChange = (e) => {
 const file = e.target.files[0];
+
 if (file) {
-setFileName(file.name);
+  setFileName(file.name);
 }
+
 };
 
 return ( <main className="min-h-screen bg-slate-50 text-black"> <nav className="bg-white shadow"> <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col items-center sm:flex-row sm:justify-between gap-4"> <h1 className="text-3xl font-extrabold">
@@ -57,6 +63,46 @@ HillPrint </h1>
         </p>
       </div>
     )}
+
+    <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-xl shadow">
+      <input
+        type="text"
+        placeholder="Full Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="w-full border p-3 rounded mb-4"
+      />
+
+      <input
+        type="tel"
+        placeholder="Mobile Number"
+        value={mobile}
+        onChange={(e) => setMobile(e.target.value)}
+        className="w-full border p-3 rounded mb-4"
+      />
+
+      <input
+        type="number"
+        min="1"
+        placeholder="Copies"
+        value={copies}
+        onChange={(e) => setCopies(e.target.value)}
+        className="w-full border p-3 rounded mb-4"
+      />
+
+      <select
+        value={printType}
+        onChange={(e) => setPrintType(e.target.value)}
+        className="w-full border p-3 rounded mb-4"
+      >
+        <option value="bw">Black & White</option>
+        <option value="color">Color</option>
+      </select>
+
+      <button className="w-full bg-black text-white py-3 rounded-lg">
+        Place Order
+      </button>
+    </div>
   </section>
 
   <section className="max-w-6xl mx-auto py-16 px-4">
