@@ -1,13 +1,27 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Home() {
+const [fileName, setFileName] = useState("");
+
+const handleFileChange = (e) => {
+const file = e.target.files[0];
+if (file) {
+setFileName(file.name);
+}
+};
+
 return ( <main className="min-h-screen bg-slate-50 text-black"> <nav className="bg-white shadow"> <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col items-center sm:flex-row sm:justify-between gap-4"> <h1 className="text-3xl font-extrabold">
 HillPrint </h1>
 
+```
       <div className="flex flex-col w-full sm:w-auto sm:flex-row gap-3">
-        <button className="w-full sm:w-auto px-5 py-2 border-2 border-black rounded-lg hover:bg-gray-100 transition">
+        <button className="w-full sm:w-auto px-5 py-2 border-2 border-black rounded-lg">
           Shop Login
         </button>
 
-        <button className="w-full sm:w-auto px-5 py-2 bg-black text-white rounded-lg hover:opacity-90 transition">
+        <button className="w-full sm:w-auto px-5 py-2 bg-black text-white rounded-lg">
           Customer Login
         </button>
       </div>
@@ -24,9 +38,26 @@ HillPrint </h1>
       Documents Ready To Go.
     </p>
 
-    <button className="bg-black text-white px-8 py-4 rounded-xl text-lg hover:opacity-90 transition">
+    <label className="bg-black text-white px-8 py-4 rounded-xl text-lg cursor-pointer inline-block">
       Upload PDF
-    </button>
+      <input
+        type="file"
+        accept=".pdf"
+        className="hidden"
+        onChange={handleFileChange}
+      />
+    </label>
+
+    {fileName && (
+      <div className="mt-6">
+        <p className="font-semibold">
+          Selected File:
+        </p>
+        <p className="text-blue-600">
+          {fileName}
+        </p>
+      </div>
+    )}
   </section>
 
   <section className="max-w-6xl mx-auto py-16 px-4">
