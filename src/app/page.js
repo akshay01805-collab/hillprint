@@ -186,6 +186,12 @@ HillPrint </h1>
       >
         Place Order
       </button>
+      <a
+  href="/track"
+  className="block mt-4 text-center bg-white border border-black text-black px-6 py-3 rounded-xl font-semibold"
+>
+  Track My Order
+</a>
 
       {message && (
         <p className="text-green-600 font-semibold mt-4">
@@ -382,6 +388,14 @@ HillPrint </h1>
     © 2026 HillPrint. All Rights Reserved.
   </p>
 </section>
+<a
+  href="https://wa.me/918988477786"
+  target="_blank"
+  rel="noreferrer"
+  className="fixed bottom-5 right-5 bg-green-500 text-white px-4 py-3 rounded-full shadow-xl font-semibold"
+>
+  WhatsApp
+</a>
 </main>
 
 );
