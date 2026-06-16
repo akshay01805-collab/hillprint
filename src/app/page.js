@@ -93,19 +93,19 @@ if (error) {
 };
 if (showWelcome) {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 to-slate-700">
+    <div className="min-h-screen flex justify-center pt-32 bg-gradient-to-r from-slate-900 to-slate-700">
       <div className="text-center text-white">
         <img
   src="/logo.png"
   alt="HillPrint Logo"
-  className="w-64 h-64 mx-auto mb-4 object-contain"
- />
+  className="w-56 h-56 mx-auto -mb-14 object-contain"
+/>
 
-       <p className="text-3xl font-bold uppercase tracking-wider">
+      <p className="text-3xl font-bold uppercase tracking-wider">
   WELCOME TO HILLPRINT
 </p>
 
-        <p className="text-sm mt-3 text-slate-300 uppercase tracking-[4px]">
+<p className="text-sm mt-1 text-slate-300 uppercase tracking-[4px]">
   BY ABS FINANCIAL ADVISORY
 </p>
       </div>
