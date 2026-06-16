@@ -93,7 +93,7 @@ if (error) {
 };
 if (showWelcome) {
   return (
-    <div className="min-h-screen flex justify-center pt-32 bg-gradient-to-r from-slate-900 to-slate-700">
+    <div className="min-h-screen flex justify-center pt-32 bg-gradient-to-r from-black 900 to-black 700">
       <div className="text-center text-white">
         <img
   src="/logo.png"
@@ -112,18 +112,28 @@ if (showWelcome) {
     </div>
   );
 }
-return ( <main className="min-h-screen bg-slate-50 text-black"> <section className="text-center py-10 px-4"> <h1 className="text-4xl font-bold mb-6">
-HillPrint </h1>
+return ( <main className="min-h-screen bg-slate-50 text-black"> <section className="text-center py-2 px-4"> 
+<div className="flex flex-col items-center">
 
-    <label className="bg-black text-white px-6 py-3 rounded-lg cursor-pointer inline-block">
-      Upload PDF
-      <input
-        type="file"
-        accept=".pdf"
-        className="hidden"
-        onChange={handleFileChange}
-      />
-    </label>
+ <div className="w-full bg-black 900 py-0 mb-8">
+  <img
+    src="/logo.png"
+    alt="HillPrint Logo"
+    className="w-56 mx-auto object-contain"
+  />
+</div>
+
+  <label className="bg-black text-white px-6 py-3 rounded-lg cursor-pointer inline-block">
+    Upload PDF
+    <input
+      type="file"
+      accept=".pdf"
+      className="hidden"
+      onChange={handleFileChange}
+    />
+  </label>
+
+</div>
 
     {fileName && (
       <div className="mt-4">
