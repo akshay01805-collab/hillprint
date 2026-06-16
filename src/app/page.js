@@ -98,7 +98,7 @@ if (showWelcome) {
         <img
   src="/logo.png"
   alt="HillPrint Logo"
-  className="w-56 h-56 mx-auto -mb-14 object-contain"
+  className="w-56 h-56 mx-auto -mb-2 object-contain"
 />
 
       <p className="text-3xl font-bold uppercase tracking-wider">
