@@ -101,7 +101,7 @@ if (showWelcome) {
   className="w-56 h-56 mx-auto -mb-2 object-contain"
 />
 
-      <p className="text-3xl font-bold uppercase tracking-wider">
+      <p className="text-1xl font-bold uppercase tracking-wider">
   WELCOME TO HILLPRINT
 </p>
 
