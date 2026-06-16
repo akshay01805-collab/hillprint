@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../lib/supabase";
 
 export default function Home() {
@@ -12,7 +12,15 @@ const [copies, setCopies] = useState(1);
 const [printType, setPrintType] = useState("bw");
 const [shop, setShop] = useState("ABS Financial Advisory");
 const [message, setMessage] = useState("");
+const [showWelcome, setShowWelcome] = useState(true);
 
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowWelcome(false);
+  }, 2500);
+
+  return () => clearTimeout(timer);
+}, []);
 const pricePerCopy = printType === "bw" ? 6.5 : 15;
 const totalPrice = Number(copies) * pricePerCopy;
 
@@ -83,7 +91,27 @@ if (error) {
 
 
 };
+if (showWelcome) {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-slate-900 to-slate-700">
+      <div className="text-center text-white">
+        <img
+  src="/logo.png"
+  alt="HillPrint Logo"
+  className="w-64 h-64 mx-auto mb-4 object-contain"
+ />
 
+       <p className="text-3xl font-bold uppercase tracking-wider">
+  WELCOME TO HILLPRINT
+</p>
+
+        <p className="text-sm mt-3 text-slate-300 uppercase tracking-[4px]">
+  BY ABS FINANCIAL ADVISORY
+</p>
+      </div>
+    </div>
+  );
+}
 return ( <main className="min-h-screen bg-slate-50 text-black"> <section className="text-center py-10 px-4"> <h1 className="text-4xl font-bold mb-6">
 HillPrint </h1>
 
