@@ -112,10 +112,10 @@ if (showWelcome) {
     </div>
   );
 }
-return ( <main className="min-h-screen bg-slate-50 text-black"> <section className="text-center py-2 px-4"> 
+return ( <main className="min-h-screen bg-slate-50 text-black"> <section className="text-center py-0 px-0"> 
 <div className="flex flex-col items-center">
 
- <div className="w-full bg-black 900 py-0 mb-8">
+ <div className="w-full bg-black 900 py-0 mb-20">
   <img
     src="/logo.png"
     alt="HillPrint Logo"
