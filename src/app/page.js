@@ -186,7 +186,7 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
           Black & White (₹6.5)
         </option>
         <option value="color">
-          Color (₹15)
+          Color (₹11.5)
         </option>
       </select>
 
