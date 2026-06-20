@@ -183,10 +183,10 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
         className="w-full border p-3 rounded mb-4"
       >
         <option value="bw">
-          Black & White (₹6.5)
+          A4 Black & White (₹6.5)
         </option>
         <option value="color">
-          Color (₹11.5)
+          A4 Color (₹11.5)
         </option>
       </select>
 
