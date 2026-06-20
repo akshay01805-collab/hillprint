@@ -299,7 +299,6 @@ const checkUser = async () => {
                 <td style={{ padding: "12px", border: "1px solid #ddd" }}>
                   ₹{order.total_price}
                 </td>
-
                 <td style={{ padding: "12px", border: "1px solid #ddd" }}>
                   <div>
                     <div

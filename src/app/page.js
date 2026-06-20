@@ -59,21 +59,16 @@ const { data } = supabase.storage
 
 const pdfUrl = data.publicUrl;
 
-const { error } = await supabase
-  .from("orders")
-  .insert([
-    {
-      customer_name: name,
-      mobile: mobile,
-      file_name: fileName,
-      pdf_url: pdfUrl,
-      copies: Number(copies),
-      print_type: printType,
-      shop: shop,
-      total_price: totalPrice,
-      status: "Pending",
-    },
-  ]);
+const { error } = await supabase.from("orders").insert([
+  {
+    name,
+    mobile,
+    copies,
+    print_type: printType,
+    shop,
+
+  },
+]);
 
 if (error) {
   console.log(error);
@@ -207,6 +202,13 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
           Cyber Point Theog
         </option>
       </select>
+      <div className="mb-4">
+  <label className="block font-semibold mb-2">
+
+  </label>
+
+
+</div>
 
       <div className="bg-gray-100 p-4 rounded mb-4">
         <p>
@@ -228,6 +230,7 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
   href="/track"
   className="block mt-4 text-center bg-white border border-black text-black px-6 py-3 rounded-xl font-semibold"
 >
+  
   Track My Order
 </a>
 
