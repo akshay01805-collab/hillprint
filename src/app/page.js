@@ -124,13 +124,13 @@ return ( <main className="min-h-screen bg-slate-50 text-black"> <section classNa
 </div>
 
   <label className="bg-black text-white px-6 py-3 rounded-lg cursor-pointer inline-block">
-    Upload PDF
+    Upload PDF / Image
     <input
-      type="file"
-      accept=".pdf"
-      className="hidden"
-      onChange={handleFileChange}
-    />
+  type="file"
+  accept=".pdf,.jpg,.jpeg,.png"
+  className="hidden"
+  onChange={handleFileChange}
+/>
   </label>
 
 </div>
